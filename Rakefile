@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "method_call_recorder"
-    gem.summary = %Q{TODO}
+    gem.summary = "An object on which you can call anything, where nothing happens, but the whole method chain is recorded"
     gem.email = "mark@new-bamboo.co.uk"
     gem.homepage = "http://github.com/markevans/method_call_recorder"
     gem.authors = ["Mark Evans"]
