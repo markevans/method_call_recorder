@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
      "lib/method_call_recorder.rb",
      "lib/method_call_recorder/method_call.rb",
      "lib/method_call_recorder/method_call_recorder.rb",
+     "method_call_recorder.gemspec",
      "spec/method_call_recorder_spec.rb",
      "spec/method_call_spec.rb",
      "spec/spec_helper.rb"
