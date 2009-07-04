@@ -17,6 +17,12 @@ Using the last example:
     method_call.method  #  :[] (a symbol representing the method call)
     method_call.args    #  [1] (an array of the args)
 
+You can reset the recorded method chain using
+
+    rec._reset!
+
+For a few methods, see the specs (sorry!)
+
 Install
 -------
 Install from github gems in usual way

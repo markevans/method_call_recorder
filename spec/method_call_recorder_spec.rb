@@ -50,13 +50,11 @@ describe MethodCallRecorder do
   end
 
   it "should allow resetting the method chain" do
-    mc1 = stub_method_call(:once)
-    mc2 = stub_method_call(:twice)
-    @rec.once
-    @rec._method_chain.should == [mc1]
+    mc = stub_method_call(:some_method)
+    @rec.some_method
+    @rec._method_chain.should == [mc]
     @rec._reset!
-    @rec.twice
-    @rec._method_chain.should == [mc1, mc2]
+    @rec._method_chain.should == []
   end
 
   it "should yield the current sub object, and the next two methods to be called as it plays back" do

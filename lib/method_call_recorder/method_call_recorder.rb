@@ -33,7 +33,7 @@ class MethodCallRecorder
   end
   
   def _reset!
-    _method_chain = []
+    self._method_chain = []
   end
   
   def _select(meth, args=nil)
