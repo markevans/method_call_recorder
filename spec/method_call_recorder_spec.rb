@@ -119,5 +119,12 @@ describe MethodCallRecorder do
     end
 
   end
+  
+  describe "blocks" do
+    it "should save the block for a method call in the method call" do
+      @rec.hello{|t| t + 4 }
+      @rec._method_chain.first.block.should be_a(Proc)
+    end
+  end
 
 end

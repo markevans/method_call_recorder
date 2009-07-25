@@ -50,8 +50,8 @@ class MethodCallRecorder
 
   private
 
-  def method_missing(meth, *args)
-    _method_chain << MethodCall.new(meth, *args)
+  def method_missing(meth, *args, &blk)
+    _method_chain << MethodCall.new(meth, *args, &blk)
     self
   end
 
