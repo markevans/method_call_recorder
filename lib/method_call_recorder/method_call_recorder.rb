@@ -9,8 +9,16 @@ class MethodCallRecorder
     end
   end
 
+  def _on_method_call(&blk)
+    @on_method_call = blk
+  end
+
   def _first_method
     _method_chain.first
+  end
+  
+  def _last_method
+    _method_chain.last
   end
   
   def _empty?
@@ -52,6 +60,7 @@ class MethodCallRecorder
 
   def method_missing(meth, *args, &blk)
     _method_chain << MethodCall.new(meth, *args, &blk)
+    @on_method_call.call(self) if @on_method_call
     self
   end
 

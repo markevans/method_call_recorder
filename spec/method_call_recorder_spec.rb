@@ -127,4 +127,13 @@ describe MethodCallRecorder do
     end
   end
 
+  describe "callback on method call" do
+    it "should do the callback on every method call" do
+      methods = []
+      @rec._on_method_call{|rec| methods << rec._last_method.method }
+      @rec.hi[:there]
+      methods.should == [:hi,:[]]
+    end
+  end
+
 end

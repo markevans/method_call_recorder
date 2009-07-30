@@ -1,6 +1,5 @@
 class MethodCall
 
-
   def initialize(meth, *args, &blk)
     @method, @args = meth, args
     @block = blk
