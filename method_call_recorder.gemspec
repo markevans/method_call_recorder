@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{method_call_recorder}
-  s.version = "0.1.2"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Evans"]
-  s.date = %q{2009-07-29}
+  s.date = %q{2009-07-31}
   s.email = %q{mark@new-bamboo.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -21,8 +21,10 @@ Gem::Specification.new do |s|
      "VERSION",
      "lib/method_call_recorder.rb",
      "lib/method_call_recorder/method_call.rb",
+     "lib/method_call_recorder/method_call_logger.rb",
      "lib/method_call_recorder/method_call_recorder.rb",
      "method_call_recorder.gemspec",
+     "spec/method_call_logger_spec.rb",
      "spec/method_call_recorder_spec.rb",
      "spec/method_call_spec.rb",
      "spec/spec_helper.rb"
@@ -34,7 +36,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{An object on which you can call anything, where nothing happens, but the whole method chain is recorded}
   s.test_files = [
-    "spec/method_call_recorder_spec.rb",
+    "spec/method_call_logger_spec.rb",
+     "spec/method_call_recorder_spec.rb",
      "spec/method_call_spec.rb",
      "spec/spec_helper.rb"
   ]
