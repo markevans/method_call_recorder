@@ -135,5 +135,13 @@ describe MethodCallRecorder do
       methods.should == [:hi,:[]]
     end
   end
+  
+  describe "owner" do
+    it "should have an owner" do
+      obj = Object.new
+      @rec._owner = obj
+      @rec._owner.should == obj
+    end
+  end
 
 end

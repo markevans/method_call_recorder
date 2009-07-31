@@ -52,6 +52,8 @@ class MethodCallRecorder
     end
   end
 
+  attr_accessor :_owner
+
   protected
   
   attr_writer :_method_chain
