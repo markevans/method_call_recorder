@@ -59,7 +59,21 @@ class MethodCall
   end
 
   def to_s
-    to_a.to_s
+    "obj#{args_string}"
+  end
+
+  def args_string
+    args_str = args.map(&:inspect)
+    case type
+    when :attr_reader
+      args.any? ? ".#{method}(#{args_str.join(',')})" : ".#{method}"
+    when :attr_writer
+      ".#{method}#{args_str.join(',')}" # There should only be one arg but just in case
+    when :array_reader, :hash_reader
+      "[#{args_str.join(',')}]"
+    when :array_writer, :hash_writer
+      "[#{args_str[0...-1].join(',')}]=#{args_str.last}"
+    end.gsub(' ','')
   end
 
   protected

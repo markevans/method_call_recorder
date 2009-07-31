@@ -158,4 +158,25 @@ describe MethodCall do
 
   end
 
+  describe "string representation" do
+    {
+      MethodCall.new(:hello, 3) => 'obj.hello(3)',
+      MethodCall.new(:hello, 'hello') => 'obj.hello("hello")',
+      MethodCall.new(:hello, :symbol) => "obj.hello(:symbol)",
+      MethodCall.new(:hello, [1,'a',:a]) => 'obj.hello([1,"a",:a])',
+      MethodCall.new(:hello, {:a => 1}) => "obj.hello({:a=>1})",
+      MethodCall.new(:hello, 1,2,3) => "obj.hello(1,2,3)",
+      MethodCall.new(:hello=, 1) => "obj.hello=1",
+      MethodCall.new(:[], 1) => "obj[1]",
+      MethodCall.new(:[], :a) => "obj[:a]",
+      MethodCall.new(:[], 1,2) => "obj[1,2]",
+      MethodCall.new(:[]=, 1,2) => "obj[1]=2",
+      MethodCall.new(:[]=, 1,2,3) => "obj[1,2]=3",
+    }.each do |method_call, str|
+      it "should display #{method_call} as '#{str}'" do
+        method_call.to_s.should == str
+      end
+    end
+  end
+
 end
