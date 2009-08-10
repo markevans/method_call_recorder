@@ -53,6 +53,10 @@ class MethodCallRecorder
   end
 
   attr_accessor :_owner
+  
+  def _eql?(other_rec)
+    _method_chain == other_rec._method_chain
+  end
 
   protected
   

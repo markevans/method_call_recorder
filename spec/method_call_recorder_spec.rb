@@ -153,12 +153,19 @@ describe MethodCallRecorder do
     end
   end
   
-  describe "comparing with other method chains" do
+  describe "comparing with other method call recorders" do
     before(:each) do
       @rec2 = MethodCallRecorder.new
     end
-    it "should description" do
-      
+    it "should return true when equal method calls" do
+      @rec.hello[:there].how('are',:you?)[1..2]
+      @rec2.hello[:there].how('are',:you?)[1..2]
+      @rec._eql?(@rec2).should be_true
+    end
+    it "should return false when not equal calls" do
+      @rec.hello[:there]
+      @rec2.hello[:here]
+      @rec._eql?(@rec2).should be_false
     end
   end
 
