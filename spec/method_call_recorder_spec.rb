@@ -144,4 +144,13 @@ describe MethodCallRecorder do
     end
   end
 
+  describe "string representation" do
+    it "should use the args_string method of method call" do
+      @rec.hello[:there]
+      @rec._method_chain.first.should_receive(:args_string).and_return '.hello'
+      @rec._method_chain.last.should_receive(:args_string).and_return '[:there]'
+      @rec.to_s.should == 'obj.hello[:there]'
+    end
+  end
+
 end

@@ -26,7 +26,7 @@ class MethodCallRecorder
   end
 
   def to_s
-    _method_chain.inspect
+    'obj' + _method_chain.map{|mc| mc.args_string }.join
   end
 
   def _method_chain
