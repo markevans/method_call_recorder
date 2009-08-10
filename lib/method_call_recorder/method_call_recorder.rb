@@ -25,7 +25,7 @@ class MethodCallRecorder
     _method_chain.empty?
   end
 
-  def to_s
+  def _to_s
     'obj' + _method_chain.map{|mc| mc.args_string }.join
   end
 

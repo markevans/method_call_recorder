@@ -149,7 +149,16 @@ describe MethodCallRecorder do
       @rec.hello[:there]
       @rec._method_chain.first.should_receive(:args_string).and_return '.hello'
       @rec._method_chain.last.should_receive(:args_string).and_return '[:there]'
-      @rec.to_s.should == 'obj.hello[:there]'
+      @rec._to_s.should == 'obj.hello[:there]'
+    end
+  end
+  
+  describe "comparing with other method chains" do
+    before(:each) do
+      @rec2 = MethodCallRecorder.new
+    end
+    it "should description" do
+      
     end
   end
 
